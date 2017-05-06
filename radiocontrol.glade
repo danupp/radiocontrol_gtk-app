@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.16.1 -->
+<interface>
+  <requires lib="gtk+" version="3.10"/>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="upper">31</property>
+    <property name="value">18</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment2">
+    <property name="lower">-63</property>
+    <property name="upper">63</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment3">
+    <property name="upper">22</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkWindow" id="window1">
+    <property name="width_request">555</property>
+    <property name="height_request">352</property>
+    <property name="can_focus">False</property>
+    <property name="opacity">0.93000000000000005</property>
+    <property name="halign">baseline</property>
+    <property name="title" translatable="yes">Radio Control</property>
+    <property name="resizable">False</property>
+    <property name="has_resize_grip">False</property>
+    <signal name="delete-event" handler="OnDeleteWindow" swapped="no"/>
+    <child>
+      <object class="GtkLayout" id="layout1">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="width">113</property>
+        <child>
+          <object class="GtkLabel" id="label2">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Vol:</property>
+            <property name="ellipsize">end</property>
+            <property name="lines">1</property>
+          </object>
+          <packing>
+            <property name="x">333</property>
+            <property name="y">89</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScale" id="scale1">
+            <property name="width_request">100</property>
+            <property name="height_request">120</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="margin_top">1</property>
+            <property name="orientation">vertical</property>
+            <property name="adjustment">adjustment1</property>
+            <property name="inverted">True</property>
+            <property name="lower_stepper_sensitivity">off</property>
+            <property name="upper_stepper_sensitivity">off</property>
+            <property name="restrict_to_fill_level">False</property>
+            <property name="fill_level">0</property>
+            <property name="round_digits">0</property>
+            <property name="digits">0</property>
+            <signal name="scroll-event" handler="VolScroll" swapped="no"/>
+            <signal name="value-changed" handler="VolChange" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">366</property>
+            <property name="y">78</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entry1">
+            <property name="name">entry1</property>
+            <property name="width_request">268</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="text" translatable="yes">18 365 200</property>
+            <property name="caps_lock_warning">False</property>
+            <property name="progress_pulse_step">0</property>
+            <property name="secondary_icon_stock">gtk-execute</property>
+            <property name="primary_icon_activatable">False</property>
+            <property name="primary_icon_sensitive">False</property>
+            <property name="input_purpose">digits</property>
+            <signal name="activate" handler="NewFreqEntry" swapped="no"/>
+            <signal name="changed" handler="FreqEdited" swapped="no"/>
+            <signal name="icon-release" handler="NewFreqEntry" swapped="no"/>
+            <signal name="scroll-event" handler="FreqScroll" swapped="no"/>
+            <style>
+              <class name="apa"/>
+            </style>
+          </object>
+          <packing>
+            <property name="x">53</property>
+            <property name="y">110</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="LSB_button">
+            <property name="label" translatable="yes">LSB</property>
+            <property name="width_request">56</property>
+            <property name="height_request">-1</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="xalign">0</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="ModeToggle" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">309</property>
+            <property name="y">19</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="USB_button">
+            <property name="label" translatable="yes">USB</property>
+            <property name="width_request">53</property>
+            <property name="height_request">-1</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="xalign">0</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">LSB_button</property>
+            <signal name="toggled" handler="ModeToggle" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">251</property>
+            <property name="y">19</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="CW_button">
+            <property name="label" translatable="yes">CW</property>
+            <property name="width_request">57</property>
+            <property name="height_request">-1</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="xalign">0.029999999329447746</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">LSB_button</property>
+            <signal name="toggled" handler="ModeToggle" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">251</property>
+            <property name="y">43</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLevelBar" id="rssibar">
+            <property name="width_request">414</property>
+            <property name="height_request">30</property>
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">False</property>
+            <property name="value">10</property>
+            <property name="max_value">12</property>
+            <property name="mode">discrete</property>
+          </object>
+          <packing>
+            <property name="x">88</property>
+            <property name="y">270</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button2">
+            <property name="width_request">53</property>
+            <property name="height_request">38</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="xalign">0.47999998927116394</property>
+            <signal name="clicked" handler="OnBandUpPressed" swapped="no"/>
+            <child>
+              <object class="GtkArrow" id="arrow1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="arrow_type">up</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">118</property>
+            <property name="y">158</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button3">
+            <property name="width_request">53</property>
+            <property name="height_request">38</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="xalign">0.47999998927116394</property>
+            <signal name="clicked" handler="OnBandDownPressed" swapped="no"/>
+            <child>
+              <object class="GtkArrow" id="arrow2">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="arrow_type">down</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="x">55</property>
+            <property name="y">158</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="AM_button">
+            <property name="label" translatable="yes">AM</property>
+            <property name="width_request">47</property>
+            <property name="height_request">-1</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="xalign">0</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">LSB_button</property>
+            <signal name="toggled" handler="ModeToggle" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">202</property>
+            <property name="y">43</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="width_request">184</property>
+            <property name="height_request">127</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">FPGA Radio Control Panel
+SM6VFZ</property>
+            <property name="ellipsize">end</property>
+            <property name="angle">20</property>
+          </object>
+          <packing>
+            <property name="x">-5</property>
+            <property name="y">-17</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label3">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Frequency</property>
+          </object>
+          <packing>
+            <property name="x">81</property>
+            <property name="y">58</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label4">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Mode:</property>
+          </object>
+          <packing>
+            <property name="x">167</property>
+            <property name="y">-10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label5">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">RSSI:</property>
+          </object>
+          <packing>
+            <property name="x">5</property>
+            <property name="y">245</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSeparator" id="separator1">
+            <property name="width_request">536</property>
+            <property name="height_request">-1</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+          </object>
+          <packing>
+            <property name="x">8</property>
+            <property name="y">313</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="statuslabel">
+            <property name="height_request">-1</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">6</property>
+            <property name="label" translatable="yes">...</property>
+          </object>
+          <packing>
+            <property name="x">37</property>
+            <property name="y">318</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScale" id="scale2">
+            <property name="width_request">174</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">adjustment2</property>
+            <property name="restrict_to_fill_level">False</property>
+            <property name="fill_level">2</property>
+            <property name="round_digits">0</property>
+            <property name="digits">0</property>
+            <signal name="scroll-event" handler="ClarScroll" swapped="no"/>
+            <signal name="value-changed" handler="ClarChange" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">90</property>
+            <property name="y">194</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label6">
+            <property name="width_request">60</property>
+            <property name="height_request">27</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Clar:</property>
+          </object>
+          <packing>
+            <property name="x">25</property>
+            <property name="y">229</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="CWN_button">
+            <property name="label" translatable="yes">CW-N</property>
+            <property name="width_request">67</property>
+            <property name="height_request">-1</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="xalign">0</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">LSB_button</property>
+            <signal name="toggled" handler="ModeToggle" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">309</property>
+            <property name="y">42</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label7">
+            <property name="width_request">44</property>
+            <property name="height_request">33</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">-</property>
+          </object>
+          <packing>
+            <property name="x">441</property>
+            <property name="y">224</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScale" id="scale3">
+            <property name="width_request">100</property>
+            <property name="height_request">120</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="orientation">vertical</property>
+            <property name="adjustment">adjustment3</property>
+            <property name="inverted">True</property>
+            <property name="restrict_to_fill_level">False</property>
+            <property name="fill_level">0</property>
+            <property name="round_digits">0</property>
+            <property name="digits">0</property>
+            <signal name="scroll-event" handler="SqScroll" swapped="no"/>
+            <signal name="value-changed" handler="SqChange" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">453</property>
+            <property name="y">78</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label8">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">Squelch:</property>
+            <property name="ellipsize">end</property>
+          </object>
+          <packing>
+            <property name="x">413</property>
+            <property name="y">89</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
